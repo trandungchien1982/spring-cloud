@@ -1,0 +1,70 @@
+buildscript {
+    ext {
+        springBootVersion = '2.3.5.RELEASE'
+        springCloudVersion = 'Hoxton.SR8'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'spring-client-project-3'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {	
+    compile("org.springframework.boot:spring-boot-devtools")
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	
+	compile("org.springframework.cloud:spring-cloud-config-server")
+    compile("org.springframework.cloud:spring-cloud-config-monitor")
+    compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
+	
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
+	
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-collections4
+	compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.2'
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation group: 'org.json', name: 'json', version: '20210307'
+
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+eclipse {
+    classpath {
+        containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+        containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+    }
+}
+
+bootRun {
+	systemProperties = System.properties
+}

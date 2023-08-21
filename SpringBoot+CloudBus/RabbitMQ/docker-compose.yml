@@ -1,0 +1,20 @@
+# Create Rabbit MQ for Spring Cloud Bus (as AMQP broker)
+# http://localhost:15672
+# User/Pass : guest/guest
+# Port : 5672
+
+version: '3'
+services:
+  rabbit_mq_custom:
+    image: rabbitmq:3-management
+    container_name: rabbit_mq_custom_container
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - common_network
+networks:
+    common_network:
+      external: true
+
+
