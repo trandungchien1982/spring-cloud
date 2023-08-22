@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        # consume message Teacher từ topic `start-kafka-topic`
+        teacherConsumer-in-0:
+          destination: start-kafka-topic
+          group: group3_ONE
+
+server.port: 9117

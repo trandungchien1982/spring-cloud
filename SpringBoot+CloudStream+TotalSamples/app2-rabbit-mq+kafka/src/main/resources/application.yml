@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        # forwardMessage từ hệ thống RabbitMQ sang Kafka
+        forwardMessageAndConvert-in-0:
+          destination: end-rabbit-topic
+          binder: rabbit
+        forwardMessageAndConvert-out-0:
+          destination: start-kafka-topic
+          producer:
+            partitionCount: 5 #Quy định `start-kafka-topic` sẽ có 5 partition
+          binder: kafka
+
+      kafka:
+        binder:
+          autoAddPartitions: true # Cho phép tự động thêm Partitions vào topics
+
+server.port: 9115

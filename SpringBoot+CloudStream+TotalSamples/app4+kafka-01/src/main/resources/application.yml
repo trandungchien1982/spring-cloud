@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        # consume message Teacher từ topic `start-kafka-topic`
+        functionConvertTeacher2-in-0:
+          destination: start-kafka-topic
+          group: group4_TWO
+
+        functionConvertTeacher2-out-0:
+          destination: end-kafka-topic
+
+server.port: 9119

@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        # consume message Teacher2 từ topic `end-kafka-topic` và xử lý busniness logic
+        consumerTeacher2-in-0:
+          destination: end-kafka-topic
+          group: group4_THREE
+
+server.port: 9121

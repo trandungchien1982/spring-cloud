@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        # functionRabbit
+        functionRabbit-in-0:
+          destination: begin-rabbit-topic
+        functionRabbit-out-0:
+          destination: end-rabbit-topic
+
+server.port: 9114
