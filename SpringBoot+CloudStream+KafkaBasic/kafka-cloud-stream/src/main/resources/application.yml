@@ -1,0 +1,40 @@
+spring:
+  cloud:
+    function.definition: supplierKafka;functionKafka;consumerKafka;consumerKafkaOne
+
+    stream:
+      bindings:
+        # consumerKafka
+        consumerKafka-in-0:
+          destination: consumer-in-topic
+          group: consumer-in
+          consumer:
+            batch-mode: true
+
+        # consumerKafkaOne
+        consumerKafkaOne-in-0:
+          destination: consumer-one-in-topic
+          group: consumer-one-in
+
+        # supplierKafka
+        supplierKafka-in-0:
+          destination: supplier-in-topic
+        supplierKafka-out-0:
+          destination: supplier-out-topic
+
+        # functionKafka
+        functionKafka-in-0:
+          destination: function-in-topic
+        functionKafka-out-0:
+          destination: function-out-topic
+
+        # targetBindingKafka
+        targetBindingKafka-out-0:
+          destination: target-out-topic
+
+
+  kafka:
+    producer:
+      acks: all
+    consumer:
+      auto-offset-reset: earliest
