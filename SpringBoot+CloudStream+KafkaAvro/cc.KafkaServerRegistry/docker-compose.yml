@@ -1,0 +1,13 @@
+version: '3'
+services:
+    kafka_all:
+      image: lensesio/fast-data-dev
+      ports:
+        - "9092:9092"
+        - "2181:2181"
+        - "3030:3030"
+        - "8081:8081"
+        - "9581-9585:9581-9585"
+        
+        
+

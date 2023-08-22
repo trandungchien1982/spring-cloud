@@ -26,3 +26,9 @@
 /SpringBoot+CloudStream+Kafka/kafka-batch-sample/.idea/
 /SpringBoot+CloudStream+Kafka/kafka-batch-sample/.mvn/
 /SpringBoot+CloudStream+Kafka/kafka-batch-sample/target/
+/SpringBoot+CloudStream+KafkaAvro/kafka-batch-sample/.mvn/wrapper/maven-wrapper.jar
+/SpringBoot+CloudStream+KafkaAvro/kafka-streams-avro/.mvn/wrapper/maven-wrapper.jar
+/SpringBoot+CloudStream+KafkaAvro/kafka-batch-sample/.mvn/wrapper/maven-wrapper.properties
+/SpringBoot+CloudStream+KafkaAvro/kafka-streams-avro/.mvn/wrapper/maven-wrapper.properties
+/SpringBoot+CloudStream+KafkaAvro/kafka-batch-sample/.mvn/wrapper/MavenWrapperDownloader.java
+/SpringBoot+CloudStream+KafkaAvro/kafka-streams-avro/.mvn/wrapper/MavenWrapperDownloader.java
